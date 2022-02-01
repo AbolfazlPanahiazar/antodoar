@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
@@ -14,13 +15,10 @@ import { TaskItemComponent } from './components/task-item/task-item.component';
     HeaderComponent,
     ButtonComponent,
     TasksComponent,
-    TaskItemComponent
+    TaskItemComponent,
   ],
-  imports: [
-    BrowserModule,
-    FontAwesomeModule
-  ],
+  imports: [BrowserModule, HttpClientModule, FontAwesomeModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

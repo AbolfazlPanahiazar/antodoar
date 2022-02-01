@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Task } from '../Task';
 
-const httpHeader = {
+const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
   }),
@@ -29,6 +29,10 @@ export class TaskService {
 
   updateTaskReminder(task: Task): Observable<Task> {
     const url = `${this.apiUrl}/${task.id}`;
-    return this.http.put<Task>(url, task, httpHeader);
+    return this.http.patch<Task>(url, task, httpOptions);
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, task, httpOptions);
   }
 }
